@@ -1,0 +1,182 @@
+Interview Preparation
+Introduction
+Hello sir,
+As you know I am Aakash Mishra. I have completed my diploma in textile chemistry from gov polytechnic Debai Bulandshahar. After the college, I got placed in golden terry towel in Panipat where I am appointed as a trainee shift officer,where, I have one year of experience in the textile industry, during this time, I have faced several buyer audits from companies such as IKEA, Carrefour, M&S, and Target. I have met with foreign auditors and completed the audits comfortably, I have also worked for more that 24 hours straight to complete compony target when it was necessary. I believe that it is important to explain the work methods to clients or customers from time to time to ensure their satisfaction and to gain insight into their thinking and research and development on work.
+Reason: I left the textile industry because I had some health issues due to the dust and chemicals in the workplace. I am now interested in working in the technical field, as I find it more suitable for my skills and goals.
+Eager to dive into the world of web development, I successfully completed a rigorous three-month php full stack course, Where, I have acquired the fundamental skills of web development, such as HTML, CSS, JavaScript, and PHP. I have also gained some experience in back-end development and object-oriented programming using a PHP framework laravel.
+Beyond coding, I find joy in playing chess, listening to music, and delving into the pages of a good book. 
+I’m grateful for the opportunity to showcase my skills and contribute to the world of technology, thank you!!
+
+Frontend: The frontend refers to the part of a web application that users interact with directly. It includes the user interface (UI) elements, such as buttons, forms, and layouts. Frontend technologies typically involve HTML, CSS, and JavaScript.
+
+HTML : Hypertext Markup Language
+Utfmd5 and mth…. structure
+
+CSS : Cascading Style Sheets 
+CSS defines how elements should be rendered on screen, It enables specifying colors, fonts, margins, padding, and other visual properties.CSS helps create responsive layouts that adapt to different screen sizes.
+CSS Library : Bootstrap, Foundation, and Tailwind CSS.
+
+Java Script :
+Front-End Development: JavaScript is essential for creating interactive and dynamic web pages. It allows developers to manipulate the Document Object Model (DOM), handle user interactions (e.g., clicks, form submissions), and update content without page reloads.
+Back-End Development: With technologies like Node.js, JavaScript can also be used on the server side. Developers build server applications, APIs, and real-time communication systems using JavaScript.
+
+
+Backend: The backend, on the other hand, handles the server-side logic, database interactions, and business logic. It’s responsible for processing requests from the frontend, managing data, and performing various tasks.
+
+PHP : Hypertext Preprocessor
+PHP is primarily used for server-side web development. PHP can perform various tasks, including handling form data, generating dynamic page content, managing databases, and interacting with servers. PHP is commonly used to create websites, online stores, and dedicated IT systems.
+
+OOP : Object-Oriented Programming.
+Object-Oriented Programming in PHP is a powerful paradigm that allows developers to create scalable and maintainable web applications. OOP provides several advantages over procedural programming, Faster execution, Clear structure, DRY principle.
+Modularity: OOP breaks down complex systems into manageable modules (classes).
+Classes: Templates for creating objects. A class is defind by using the class keyword and followed by the name of the class and a pair of curly braces {}.
+Objects: Instances of classes.
+Inheritance: Allows one class to inherit properties and methods from another class.
+Reference: https://www.geeksforgeeks.org/how-to-implement-polymorphism-in-php/
+Interfaces and Abstract Classes:
+•	Interfaces and abstract classes can also facilitate polymorphism in PHP by defining a common set of method signatures that concrete classes must implement.
+•	Objects of different classes implementing the same interface can be treated interchangeably.
+Polymorphism Polymorphism is a core principle of object-oriented programming (OOP) where objects of different classes can be treated as objects of a common superclass. It allows methods to perform different actions based on the object they are called upon, enhancing code flexibility and reusability. 
+// Parent class
+class Animal {
+    public function makeSound() {
+        return "Animal makes a sound.";
+    }
+}
+
+// Child class overriding makeSound() method
+class Dog extends Animal {
+    public function makeSound() {
+        return "Dog barks.";
+    }
+}
+Here, Animal is a parent class with a method makeSound() returning a generic sound. Dog is a child class that extends Animal and overrides makeSound() to return “Dog barks.”.
+Encapsulation: Hides implementation details and exposes only necessary interfaces.
+Encapsulation:
+the OOPs concept of Encapsulation in PHP means, enclosing the internal details of the object to protect from external sources.
+Data is not accessed directly, in fact, they are accessed through functions(GET or SET) written inside the class. Attributes are kept private but getter(GET) and setter(SET) methods are kept public for manipulation of these attributes.
+Abstraction: Focuses on essential features while hiding unnecessary complexities.
+Abstraction can be achieve in two ways using abstract class and using interface class.
+Abstract classes and methods are when the parent class has a named method, but need its child class(es) to fill out the tasks.
+An abstract class is a class that contains at least one abstract method. An abstract method is a method that is declared, but not implemented in the code.
+An abstract class or method is defined with the abstract keyword:
+<?php
+abstract class ParentClass {
+  abstract public function someMethod1();
+  abstract public function someMethod2($name, $color);
+  abstract public function someMethod3() : string;
+}
+?>
+
+2. Interface class:
+Interfaces allow you to specify what methods a class should implement.
+Interfaces make it easy to use a variety of different classes in the same way. When one or more classes use the same interface, it is referred to as "polymorphism".
+Interfaces are declared with the interface keyword:
+<?php
+interface InterfaceName {
+  public function someMethod1();
+  public function someMethod2($name, $color);
+  public function someMethod3() : string;
+}
+?>
+
+Difference between abstract vs interface:
+https://www.javatpoint.com/difference-between-abstract-class-and-interface
+Design Patterns: OOP encourages the use of design patterns for solving common problems.
+Reference: https://www.tutorialspoint.com/design_pattern/factory_pattern.htm
+Access modifiers control the visibility and accessibility of class properties and methods.
+The public access modifier allows properties and methods to be accessed from both inside and outside of the class.
+The protected access modifier is less permissive than public, but more permissive than private.
+Properties and methods marked as protected can be accessed within the same class or any child classes (classes derived from that class).
+They cannot be accessed from outside the class or any child classes.
+Private access modifiers are the most restrictive, allowing access only within the same class.
+static keyword is used to decalare class members (property and methods) that belong to the class itself rather than to instances of the class (objects).
+Static members are shared across all the instances of the class and can be accessed without creating an object of the class.
+Traits allow you to reuse methods among multiple classes. They are particulary useful, when you need to share behavior among different classes without using traditional inheritance.
+The final keyword is used to indicate that a class, method, or constant cannot be further extended, overridden, or redefined by any child class. This is useful when you want to ensure that a specific behavior remains consistent across all subclasses.  
+<?php 
+class Base {  
+	final function printdata() { 
+		echo " Base class final printdata function"; 
+	}  
+	function nonfinal() { 
+		echo "\n This is nonfinal function of base class"; 
+	} 
+} 
+class Derived extends Base {  
+	function nonfinal() { 
+		echo "\n Derived class non final function"; 
+	}  
+} 
+$obj = new Derived; 
+$obj->printdata(); 
+$obj->nonfinal(); 
+?>
+ 
+
+
+
+What is different between sql and MySQL?
+SQL: is also pronounced as the Structured Query Language.  Its purpose is to manage data stored in relational database management systems. It is mainly useful for handling structured data where relations exist between various data entities.It is not an open-source language. It supports only a single storage engine for different operations.SQL servers are secured as no third party or outsiders are allowed to manipulate data.
+
+MySQL is an open-source RDBMS developed by MySQL AB and owned by Oracle Corporation. MySQL supports different storage engines for different functions and operations. MySQL is not secure due to its open-source nature. It gives access to data manipulation and modification to unauthorized users.
+Primary key :  In a MySQL database, a primary key is a field that uniquely identifies each record in a table.
+Foreign key : In a MySQL database, a foreign key is a column in one table that refers to the primary key or a unique key in another table.
+Unique key :  In a MySQL database, a unique key ensures that all values in a column are different.
+
+Primary key vs Unique key
+A primary key is a unique identifier for each record in a table. There can be only one primary key constraint in a table. It cannot contain NULL values (except in some DBMS like MySQL, where it automatically adds a NOT NULL constraint). It ensures uniqueness and is used to identify records. By default, creating a primary key also creates a clustered index (in MySQL, it’s a B-tree index).
+Example: If you have a table of Persons, the PersonID column could serve as the primary key.
+A unique key also ensures uniqueness, but it doesn’t necessarily serve as the primary identifier. You can have multiple unique keys in one table.It can have NULL values (unlike primary keys). It can be a candidate key, meaning it’s a potential primary key candidate. Multiple rows can have NULL values in a unique key column, so it may not always be considered truly “unique.” By default, creating a unique key generates a non-clustered index.
+Example: If you want to ensure that email addresses in a Users table are unique, you can create a unique key on the Email column.
+
+
+
+Laravel :  Laravel is a free and open-source PHP-based MVC web framework designed for building high-quality web applications.
+Middlerware : Middleware in Laravel provides a powerful way to shape the flow of requests and add essential functionality to your application. Whether it’s handling authentication, logging, or custom tasks, middleware plays a crucial role in building robust web applications!
+Routes in Laravel determine how your application responds to various HTTP requests. Web routes are assigned the web middleware group (for features like session state and CSRF protection).
+API routes are assigned the API middleware group (for stateless APIs).
+Controllers handle incoming HTTP requests and manage the application’s response. 
+Models in Laravel represent database tables and allow interaction with them. It'' allow retrieving, inserting, updating, and deleting records from the database.
+Eloquent ORM : Eloquent is an object-relational mapper that simplifies database interactions. Each table has a corresponding Eloquent model.
+Concatenation in Laravel helps you create meaningful and customized output by combining values from different sources.
+
+In Laravel the MVC pattern helps structure your code in a clean and maintainable way. 
+Model handles data and business logic.
+View displays the data.
+Controller processes user input and updates the Model and View accordingly.
+Benefits of MVC: Separation of Concerns: MVC separates different aspects of an application, making it easier to manage and maintain. Its making Reusability, Modularity, Scalability etc .
+In summary, the MVC pattern promotes a clear division of responsibilities, making code more organized and maintainable.
+API (Application Programming Interface): An API acts as an intermediary and It provides a set of rules and protocols for interacting with a software application or service. Third-party APIs allow you to integrate services like maps, social media, payment gateways, and more into your web applications. 
+Uses :- Fetching Data: Web APIs enable retrieving data from external servers (e.g., weather data, stock prices).
+Authentication: APIs handle user authentication and authorization.
+Integration: APIs allow integrating third-party services (e.g., payment gateways, social logins).
+Custom Functionality: Developers can create custom APIs to expose specific features of their applications.
+
+Exploring Predefined Functions for APIs:
+When working with APIs, predefined functions play a crucial role.
+HTTP Libraries: APIs often use predefined functions from HTTP libraries to make HTTP requests and handle responses.
+Data Serialization: Functions like json.dumps() or JSON.stringify() (JavaScript) convert data to JSON format for API communication.
+Authentication: Libraries provide functions for handling authentication (e.g., OAuth tokens).
+Error Handling: Predefined functions assist in handling errors, retries, and timeouts during API interactions. 
+Resume
+Different type of slider : Basic Carousel, Carousel with Indicators
+
+Password Generator :
+Command :  npm install generate-password   
+// you can make your own function by using math.random.
+Program to generate password
+" const generator = require('generate-password');
+const password = generator.generate({ length: 10, numbers: true });
+console.log(password); // Example: 'uEyMTw32v9' "  
+
+To-do List : To-do lists break down tasks into manageable chunks, making them easier to process and complete.
+Plugins : plugins attach to a program and provide extra functionality and abilities to the application.
+
+Desingn Pattern :  Design patterns help improve code organization, maintainability, and scalability.Common design pattern : Behavioral Patterns, Structural Patterns.
+
+Ajax : AJAX stands for Asynchronous JavaScript and XML.
+It’s a technique that allows web pages to update content without requiring a full page refresh.
+Working system of ajax : A web page (using JavaScript) sends requests to the server asynchronously.
+The server processes these requests and returns data (usually in JSON or XML format).
+The JavaScript code then updates relevant parts of the web page with the received data.

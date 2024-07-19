@@ -1,0 +1,889 @@
+format	Required. Specifies the format to use. The following characters can be used in the format parameter string:
+d - Day of the month; with leading zeros
+j - Day of the month; without leading zeros
+D - Day of the month (Mon - Sun)
+l - Day of the month (Monday - Sunday)
+S - English suffix for day of the month (st, nd, rd, th)
+F - Monthname (January - December)
+M - Monthname (Jan-Dec)
+m - Month (01-12)
+n - Month (1-12)
+Y - Year (e.g 2013)
+y - Year (e.g 13)
+a and A - am or pm
+g - 12 hour format without leading zeros
+G - 24 hour format without leading zeros
+h - 12 hour format with leading zeros
+H - 24 hour format with leading zeros
+i - Minutes with leading zeros
+s - Seconds with leading zeros
+u - Microseconds (up to six digits)
+e, O, P and T - Timezone identifier
+U - Seconds since Unix Epoch
+(space)
+# - One of the following separation symbol: ;,:,/,.,,,-,(,)
+? - A random byte
+* - Random bytes until next separator/digit
+! - Resets all fields to Unix Epoch
+| - Resets all fields to Unix Epoch if they have not been parsed yet
++ - If present, trailing data in the string will cause a warning, not an error
+
+Control Characters (non-printable):
+NUL SOH STX ETX EOT ENQ ACK BEL BS  HT  LF  VT  FF  CR  SO  SI
+DLE DC1 DC2 DC3 DC4 NAK SYN ETB CAN EM  SUB ESC FS  GS  RS  US
+
+Printable Characters:
+SP  !   "   #   $   %   &   '   (   )   *   +   ,   -   .   /
+0   1   2   3   4   5   6   7   8   9   :   ;   <   =   >   ?
+@   A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
+P   Q   R   S   T   U   V   W   X   Y   Z
+[    \    ]    ^    _    `
+a    b    c    d    e    f    g    h    i    j    k    l    m
+n    o    p    q    r    s    t    u    v    w    x    y    z
+{     |     }     ~     DEL
+
+
+[mail function]
+; For Win32 only.
+; https://php.net/smtp
+SMTP=localhost
+; https://php.net/smtp-port
+smtp_port=25
+
+; For Win32 only.
+; https://php.net/sendmail-from
+;sendmail_from = me@example.com
+
+; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; https://php.net/sendmail-path
+;sendmail_path =
+
+
+
+
+Give the example with five function of array.
+
+1. array()
+<?php
+$cars=array("Volvo","BMW","Toyota");
+echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+?>
+
+2. array_chunk()
+<?php
+$cars=array("Volvo","BMW","Toyota","Honda","Mercedes","Opel");
+echo "<pre>";
+print_r(array_chunk($cars,2));
+?>
+
+
+3. array_diff()
+<?php
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$a2=array("e"=>"red","f"=>"green","g"=>"blue");
+
+$result=array_diff($a1,$a2);
+print_r($result);
+?>
+
+
+4. array_filter()
+<?php
+function test_odd($var)
+  {
+  return($var & 1);
+  }
+
+$a1=array(1,3,2,3,4);
+print_r(array_filter($a1,"test_odd"));
+?>
+
+5. array_intersect_uassoc()
+<?php
+function myfunction($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("d"=>"red","b"=>"green","e"=>"blue");
+
+$result=array_intersect_uassoc($a1,$a2,"myfunction");
+print_r($result);
+?>
+
+
+The PHP string functions are part of the PHP core.
+
+1. addcslashes()
+<?php 
+$str = addcslashes("Hello World!","W");
+echo($str); 
+?> 
+
+2.bin2hex()
+<?php 
+$str = bin2hex("Hello World!");
+echo($str); 
+?>
+
+3. Convert a string from one character-set to another:
+<?php
+$str = "Hello world! æøå";
+echo $str . "<br>";
+echo convert_cyr_string($str,'w','a');
+?>
+
+4. The crypt() function returns a hashed string using DES, Blowfish, or MD5 algorithms. crypt()
+
+
+5. Add a backslash in front of each double quote ("):
+<?php 
+$str = addslashes('What does "yolo" mean?');
+echo($str); 
+?>
+
+6. Remove characters from the left side of a string:Itrim()
+<?php
+$str = "Hello World!";
+echo $str . "<br>";
+echo ltrim($str,"Hello");
+?>
+
+
+WAP to print an array in reverse order without using any built in function.
+<?php
+// Original array
+$arr = [1, 2, 3, 4, 5];
+
+// Calculate the size of the array
+$size = count($arr);
+
+// Swap elements from start to end
+for ($i = 0; $i < $size / 2; $i++) {
+    $temp = $arr[$i];
+    $arr[$i] = $arr[$size - $i - 1];
+    $arr[$size - $i - 1] = $temp;
+}
+
+// Print the reversed array
+echo "Reversed Array: ";
+foreach ($arr as $value) {
+    echo $value . " ";
+}
+?>
+
+
+What are the different loops in php and differentiate them?
+(for, while, do-while, foreach)
+
+1. for loop: The for loop is used when you know how many times the script should run.
+for ($x = 0; $x <= 10; $x++) {
+  echo "The number is: $x <br>";
+}
+
+
+2. While loop: The while loop executes a block of code as long as the specified condition is true.
+$i = 1;
+while ($i < 6) {
+  echo $i;
+  $i++;
+}
+
+3. Do while loop: The do...while loop - Loops through a block of code once, and then repeats the loop as long as the specified condition is true.
+$i = 1;
+
+do {
+  echo $i;
+  $i++;
+} while ($i < 6);
+
+4. foreach: The foreach loop - Loops through a block of code for each element in an array or each property in an object.
+$colors = array("red", "green", "blue", "yellow");
+
+<?php
+$colors = array("red", "green", "blue");
+foreach ($colors as $color) {
+    echo $color . "<br>";
+}
+?>
+
+
+Switch case : The switch statement is used to perform different actions based on different conditions.
+switch (expression) {
+  case label1:
+    //code block
+    break;
+  case label2:
+    //code block;
+    break;
+  case label3:
+    //code block
+    break;
+  default:
+    //code block
+}
+
+
+how do you connect php-mysql db connection :
+
+MySql
+<?php 
+$conn = mysql_connect('localhost','uername',password);
+mysql_select_db('databasname',$conn);
+$query = '';
+$res = mysql_query($query);
+while($row = mysql_fetch_assoc($res)){
+    pre "<pre>";
+    print_r($row);
+}
+?>
+
+MySqli
+<?php 
+$conn = mysqli_connect('localhost','uername','password','databasename');
+$query = '';
+$res = mysqli_query($conn, $query);
+while($row = mysqli_fetch_assoc($res)){
+    pre "<pre>";
+    print_r($row);
+}
+?>
+
+// PDO
+<?PHP
+$host = 'localhost'; 
+$dbname = 'youtube'; 
+$user = 'root';
+$pass = '';
+
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    // Your code logic here
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+$sql = '';
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$row = $stmt->fetchall(PDO:FETCH_ASSOC);
+pre "<pre>";
+print_r($row);
+?>
+
+To insert data from a CSV file into a MySQL database using PHP, you can follow these steps:
+
+Create a Database and Table:
+First, create a MySQL database if you haven’t already.
+Inside the database, create a table with the desired columns to match the data in your CSV file.
+PHP Script:
+Create a PHP script that handles the CSV file upload and data insertion.
+
+Here’s a basic example of how you can achieve this:
+
+<?php
+// Database connection
+$host = 'localhost';
+$user = 'your_db_user';
+$password = 'your_db_password';
+$database = 'your_db_name';
+
+$conn = mysqli_connect($host, $user, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Truncate the existing table (optional)
+$deleteRecords = "TRUNCATE TABLE tablename";
+mysqli_query($conn, $deleteRecords);
+
+// Upload File
+if (isset($_POST['submit'])) {
+    if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
+        echo "<h1>File " . $_FILES['filename']['name'] . " uploaded successfully.</h1>";
+        echo "<h2>Displaying contents:</h2>";
+        readfile($_FILES['filename']['tmp_name']);
+    }
+
+    // Import uploaded file to Database
+    $handle = fopen($_FILES['filename']['tmp_name'], "r");
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $import = "INSERT INTO importing(text, number) VALUES ('$data[0]', '$data[1]')";
+        mysqli_query($conn, $import) or die(mysqli_error($conn));
+    }
+    fclose($handle);
+    echo "Import done";
+} else {
+    echo "Upload new CSV by browsing to file and clicking on Upload<br />\n";
+    echo "<form enctype='multipart/form-data' action='upload.php' method='post'>";
+    echo "File name to import:<br />\n";
+    echo "<input size='50' type='file' name='filename'><br />\n";
+    echo "<input type='submit' name='submit' value='Upload'></form>";
+}
+
+mysqli_close($conn);
+?>
+
+
+
+
+fetch : fetch — Fetches the next row from a result set, vs- 
+fetchall : Returns an array containing all of the result set rows.
+To return a single row from a result set as an array or object, call the PDOStatement::fetch method.
+To return all of the rows from the result set as an array of arrays or objects, call the PDOStatement::fetchAll method.
+
+
+how to get one row from a table?
+<?php
+// Assuming you have already established a database connection ($dbh)
+$user_id = 42; // Replace with the actual user ID
+
+// Prepare the query
+$stmt = $dbh->prepare("SELECT name, email, age FROM users WHERE uid = ? LIMIT 1");
+
+// Execute the query with the user ID parameter
+$stmt->execute([$user_id]);
+
+// Fetch the result as an associative array
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Access individual columns
+$name = $row['name'];
+$email = $row['email'];
+$age = $row['age'];
+echo "Name: $name, Email: $email, Age: $age";
+?>
+
+
+
+how to get all rows from a table? 
+<?php
+$stmt = $Database->prepare("SELECT * FROM users");
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
+
+
+
+
+
+What are different types of join? 
+In MySQL, there are several types of joins that allow you to combine data from multiple tables. Let’s explore them:
+
+INNER JOIN:
+An INNER JOIN returns records that have matching values in both tables.
+It only includes rows where the specified column(s) have corresponding values in both tables.
+Example SQL query:
+SQL
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+Result: Returns orders along with customer names and order dates where there’s a match between CustomerID in the Orders table and CustomerID in the Customers table1.
+LEFT JOIN (LEFT OUTER JOIN):
+A LEFT JOIN returns all records from the left table (the one specified first), even if there are no matches in the right table.
+If there’s no match in the right table, the result will contain NULL values for the right table’s columns.
+Useful when you want to retrieve all records from the left table along with any matching data from the right table.
+Example SQL query:
+SQL
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+AI-generated code. Review and use carefully. More info on FAQ.
+Result: Returns customer names and order IDs, including customers who haven’t placed any orders2.
+RIGHT JOIN (RIGHT OUTER JOIN):
+A RIGHT JOIN returns all records from the right table (the one specified second), even if there are no matches in the left table.
+Similar to LEFT JOIN, but it ensures all records from the right table are included.
+Example SQL query:
+SQL
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+AI-generated code. Review and use carefully. More info on FAQ.
+Result: Returns order IDs along with customer names, including orders without associated customers2.
+FULL JOIN (FULL OUTER JOIN):
+A FULL JOIN returns rows when there’s a match in either of the tables.
+It includes all records from both tables, filling in NULL values where there’s no match.
+Not directly supported in MySQL, but you can simulate it using a combination of LEFT JOIN and UNION.
+Example SQL query (simulating FULL JOIN):
+SQL
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+UNION
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+Result: Returns all customer names and order IDs, including unmatched records from both tables3.
+Remember that the choice of join depends on your specific use case and the relationship between the tables.
+
+difference between inner join and outer join? 
+the main difference lies in what rows are included in the result set: INNER JOIN only includes rows with matching values in both tables, while OUTER JOIN includes all rows from one or both tables, with NULLs where there is no match.
+
+what is the self join in sql db?
+A self join in SQL is a type of join operation where a table is joined with itself. This can be useful when you want to compare rows within the same table or create relationships between rows within the same table.
+
+what are the aggregate method in sql?
+In SQL, aggregate functions are used to perform a calculation on a set of values and return a single value. These functions operate on a group of rows and return a single result per group. Here are some common aggregate functions:
+SELECT MAX(column_name)
+FROM table_name;e
+
+Object oriented programming:
+Object class
+Abstract
+interface(between abstract vs interface)
+encapsulation
+inheritance
+polymorphism:Polymorphism is a fundamental concept in OOP that allows objects of different classes to be treated as instances of a common superclass.
+
+ method overriding, method overloading(difference between them)
+Method overloading is a form of compile-time polymorphism where a class can have multiple methods with the same name but different parameters (type, number, or both).
+Method overriding is a form of run-time polymorphism where a subclass provides a specific implementation of a method that is already provided by its parent class (superclass).
+
+final class : A final class is a class that cannot be extended by other classes. In other words, once a class is declared as final, it cannot have child classes.
+static keyword : In PHP, the static keyword is used to declare class members (properties and methods) that belong to the class itself rather than to instances of the class (objects)
+
+$this
+__construct : Automatically called when an object is instantiated.
+ vs __deconstruct : It is called automatically when there are no more references to an object (i.e., the object is no longer needed).
+Important
+Hands on practice in php oops
+
+*Create a crud operation using php oops.
+*create a login registration page using oops.
+
+Laravel : Laravel is a php framework, Laravel follows as MVC architectural pattern.
+Benifit : Inbuilt Authentication System, Supports multipale file systems, Eloquent orm with php active record implementation.
+Migration : Laravel migration is like version control for the database, php artisan make:migration create_user_table.
+Official package provide by Laravel : Cashiour, passport, scout, socialite
+Routing : Routing is the process of accespting a request and sending it to the relvent function in the controller.
+Laravel Supported database : MySQL, PostgreSQL, SQLite, sql server, 
+Array : Indexed array : An array with a numeric key, Associative array : An array where each key has its own specific value, Multidimensional array : An array containing two or more array within itself.
+
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+composer create-project laravel/laravel resources_glocal
+
+
+The benefits of GitHub in English:
+
+Version Control: GitHub is a powerful version control system. Developers can track changes to their code, access previous versions, and restore them when needed1.
+Collaboration: You can collaborate with other developers on GitHub. Work together on the same project, review each other’s changes, and engage in discussions.
+Open Source Contribution: GitHub allows you to contribute to open source projects. You can write code, fix bugs, and connect with the community.
+Portfolio: Your GitHub profile serves as a portfolio to showcase your coding skills. Share your projects with recruiters and demonstrate your expertise.
+Learning Opportunity: Explore other developers’ code, learn from their projects, and enhance your skills on GitHub1.
+
+
+
+try{
+ $db = new PDO('MySQL:hsot=localhost;dbname=db_csv','root','');
+ $db->setAttribute(PDO::ERR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}Catch(PDOException $e){
+  echo "Failed to connect" . $e->getMessage();
+}
+
+try{
+  $mysql = "select from(*) where data";
+  $stmt = $db->query($sql);
+  $result = $stmt->fetchColumn();
+}
+
+In PHP $this is a special variable used within an object to refer to the current instance of the class.
+In PHP, when using Object-Oriented Programming (OOP), there are primarily three types of functions/methods that can be defined within a class:
+Instance Methods: Operate on instances of a class ($this context), most commonly used in OOP.
+Static Methods: Belong to the class itself (self:: context), useful for utility methods or when no instance-specific data is needed.
+Magic Methods: Predefined methods with special names that are automatically called by PHP based on specific actions or conditions.
+
+In PHP function type based on argument and return value:
+
+Function Based on Arguments:
+
+Functions can accept zero or more arguments.
+Optional arguments can have default values if not provided.
+Function Based on Return Value:
+
+Functions can return a single value, multiple values (using arrays or objects), or different types based on conditions.
+Return statements terminate the function and can return control to the calling code with a value.
+
+Function are four types in php
+1.Function with no argument and no return value.
+2.Function with required argument but not return value.
+3. Function returning a value but not argument.
+4.Function with returning value and with required argument.
+
+A function argument are two type that is first Actual argument and second is formal argument. 
+
+Access Modifiers:
+Public: When a property or method is declared as public it can be accessed from anywhere, both within the class itself and from outside.
+Protected: When a property or method is declared as protected it can only be accessed within the class itself and by classes that extend it (subclases).
+Private : When a property or method is declared as private it can only accessed within the class itself. it cannot be accessed by child classes or from outside the classes.
+Use of access modifier : Access modifiers allow you to restrict or allow access to class members based on your design requirements.
+Encapsulation : They enforce encapsulation by hiding internal implementation details of a class, improving code readability and maintainability.
+Method overriding : Method overriding is a feature in object-oriented-programing that allow a subclass or child class to provide a specific implementation of a method that is already defined its superclass or parent class.
+
+Abstract class: In php, an abstract class is a class that can't be instantiated on its own and is mean to be extended by other classes
+-An abstract class can have abstract methods which are methods declared without an implementation. Subclasses of the abstract class are required to implement these methods.
+
+Property overriding in php occurs when a child class difines a property with the same name as a property in its parent class. When this happens the property in the child class overrides the property in the parent class for instances of the child class.
+
+Static method can be called directly without creating an instance of the class first. static method can't instatiate by other class, because already its method and properties are public.
+
+A class have both static and not-static methods, A static method can be accessed from a method in the same class using the self keyword and double colon (::) .
+Static method can also be called from methods in other classes. To do this the static method should be public.
+To call a static method from a child class use the parent keyword inside the child class, here the static method can be public or protected.
+Static properties can be called without creating an instance of a class -> ClassName::$property;
+
+
+Interfaces allow you to specify whate methods a class should implement. Interfaces make it easy to use a variety of classes in the same way when one or more classes use the same interface, it is referred to as polymorphism. 
+
+Interface are similler to as abstract class.
+The difference berween interfaces and abstract classes are.
+Interfaces can't have properties while abstract classes can
+All interfaces methods must be public while abstract method is public or protected
+All methods in an interface are abstract so that they cannot implemented in code and the abstract keyword is not necessary.
+Class can implement an interface while inheriting from another class at the same time.
+A class that implements an interfaces must implement all of the interfaces methods as abstract class.
+
+
+Trait : php only support single inheritance, a child class can inherit only from one single parent.
+Traits are used to declare methods that can be used in multiple classes.
+Trait can have methods and abstract methods that can be used in multiple classes, and the methods can have any access modifier
+
+
+Namespace are qualifiers that solve two different problems,
+1. They allow for better organization by gouping classes that work together to perform a task.
+2. They allow the same name to be used for more than one class.
+
+Namespaces are declared at the beginning of a file using the namespace keyword -> namespace Html;
+Any code that follows a namespace declaration is operating that belong to the namespace can be instantiated without any qualifiers
+
+To access classes form outside a namespace the class needs to have the namespace attached to it.
+*It can be useful to give a message or class an alias to make it easier to write this is done with the use keyword.
+
+
+Iterable : An iterable is any value which can be looped through with a foreach() loop.
+The iterable keyword can be used as a data type of a function argument or as the return type of a function.
+
+All array are iterables so any array can be used as an argument for a function that requires an iterable.
+
+cURL : cURL is a library that allow you to connect and communicate to many different type of servers with many different type of protocols. It deals with url, To use cURL in php you need to ensure that php is compiled with cURL support.
+The cURL project has two products, 1. libcurl 2. curl.
+cURL : A command line tool for getting or sending files using URL syntax. phpinfo() function will display in its output. 
+
+Exam : The simplest and most common request/operation made using HTTP is to get a URL. The client issues a GET  request to the server and receives the document it asked it.
+
+cURL basic function :
+curl_init() -> will initialize a new session and return a cURL handle.
+curl_exec($ch) -> Its purpose is simply to execute the predefined curl session (given by $ch);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1) -> return page contents, if set 0 then no ouptput will be returned.
+curl_setopt($ch, CURLOPT_URL, $URL) -> pass url as a parameter. This is your target server website address. This is the url you want to get from the internet.
+curl_close($ch) -> close curl resources and free-up system resources.
+<?php
+// create a new cURL resource
+$ch = curl_init();
+
+// set URL and other appropriate options
+curl_setopt($ch, CURLOPT_URL, "http://www.example.com/");
+curl_setopt($ch, CURLOPT_HEADER, 0);
+
+// grab URL and pass it to the browser
+curl_exec($ch);
+
+// close cURL resource, and free up system resources
+curl_close($ch);
+?>
+
+
+
+mysqli connect ->
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+?>
+mysqli connect ->
+create database and check query ->
+// Create database
+$sql = "CREATE DATABASE myDB";
+if ($conn->query($sql) === TRUE) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating database: " . $conn->error;
+}
+
+$conn->close();
+create database and check query ->
+create table->
+CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+create table->
+Insert query ->
+INSERT INTO table_name (column1, column2, column3,...)
+VALUES (value1, value2, value3,...)
+Insert query and select last insert id ->
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+  $last_id = $conn->insert_id;
+  echo "New record created successfully. Last inserted ID is: " . $last_id;
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+Insert query and select last insert id ->
+insert myltiple query ->
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com');";
+$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('Mary', 'Moe', 'mary@example.com');";
+$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('Julie', 'Dooley', 'julie@example.com')";
+
+if (mysqli_multi_query($conn, $sql)) {
+  echo "New records created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+insert myltiple query ->
+mysqli select data ->
+
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+mysqli select data -> for return variable $row = $result->fetch_all(MYSQLI_ASSOC);
+
+Customize handling for PHP errors by throwing an ErrorException on any E_NOTICE or E_WARNING.
+function errHandle($errNo, $errStr, $errFile, $errLine) {
+    $msg = "$errStr in $errFile on line $errLine";
+    if ($errNo == E_NOTICE || $errNo == E_WARNING) {
+        throw new ErrorException($msg, $errNo);
+    } else {
+        echo $msg;
+    }
+}
+set_error_handler('errHandle');
+
+sql join using sql query with php programing
+Inner join, left join, right join
+Inner join -> Select all records form left table and matching recors from right table
+left join -> Return all records from left table and matching record from the right table
+Right join -> The right join keyword return all records from the right table and matching records from the left table
+
+
+Foreighn key and on DELETE CASCADE
+CREATE TABLE IF NOT EXISTS (
+FOREIGN KEY(student_id) REFERENCES student(student_id) on DELETE CASCADE)
+
+PHP errors can occure during web development and understanding their types is essential for troubleshooting and improving code quality.
+php in common four errors types-:
+Parse error : (sytax errors)-> These errors occure due to mistakes in the source code.
+Fatal error: It is the type of error where php compiler understand the php code but it recognizes an undeclared function.
+Warinig error-> The main reason of warning errors are including a missing file.
+Notice errors-> It is similar to warning error. It means that the program contains something wrong but it allows the execution of script.
+
+In php when a script encounters a parse error it immediately stops execution, however if you want to handle execution and continue execution you can use try catch blocks, also fatal error,
+
+In php Notice and warnings are non-fatal errors that allows the script to continue executing.
+
+Define and register a custom error handler using (set_error_handler).
+
+
+Both json and xml can be used to receive data from a web server. 
+JSON USING PHP AND JAVASCRIPT
+JSON stand for javaScript Object Notation, Json is a lightweight format for storing and transporting data. json is self-describing and easy to understand.
+syntax-> Data is in name/value pairs, Data is separated by commas, Curly braces hold objects, Square brackets hold array, 
+
+The json format is syntactically identical to the code for creating javascript objects, because this similarity a javaScript program can easily convert json data into native javascript.
+
+A common use of json is to read data from a web server and display the data in a web page.
+Json is language independent. 
+JSON.parse() is use to convert the string into a javascript object. 
+
+JSON.stringify() -> Convert a javaScript object into a string.
+if you have already a object such as $obj = {"name":"jhon", "city":"london"};
+$myjson = JSON.stingify($obj); -> this function is use to send information to a server as a json type data;
+
+In json values must be one of the following data types -> string, array, number, object, Boolean, null.
+The file type for json files is ".json" , The mime type for json text is "application/json" .
+
+for loop and for in loop
+exa ->
+let text = "";
+for(let x in myObj){
+  text += x +"," ;
+}
+
+php is a server side programing language and can be used to access a database. When sending data to the server, it is often best to use the HTTP POST method. and the data sent to the server must now be an argument to the send() method.
+
+xmlhttp.open("POST", "JSON_demo_db_post.php");
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencode");
+xmlhttp.send("x="+dbParam);
+
+The file from the data a file get as client have statement first -> header("Content-Type: application/json;charset=utf-8");
+JSONP is a method for sending JSON data without warrying about cross-domain issues JSONP does not use the XMLHttpRequest boject, JSONP use the <script> tag instead requesting a file from another domain can cause problems, due to cross-domain policy.
+JSONP uses this advantage and request files using the script tag instead of the XMLHttpRequest object.
+exa -> <script scrc = "demo_json.php">
+
+
+
+Modularity in oop is achieves through classes and objects. classes=> Blueprint for creating objects they define properties (attributes) and methods (functions).
+Objects=> Instances of classes. They bundle data and behavior together.
+
+Oop promotes better code organization reusability and scalability.
+
+Domain name at localhost=>
+
+Setting up a virtual host in php can be quite useful especially when working with local development environments.
+Steps to create a virtual host.
+1. Edit the Hosts file 
+  .Open the hosts file located at file path using text editor 
+  . Add entries for your virtual hosts
+exa-: 127.0.0.1 localhost
+      127.0.0.1 mysite.local
+      127.0.0.1 example.local
+2. Configure virtual hosts 
+  .Edit http-vhosts.conf located in xampp\apache\conf\extra\
+  .  Add the following virtual host entries
+
+<Virtualhost *:80>
+   Document c:\xampp/htdocs/mysite/
+   Servername www.mysite.local
+<Virtualhot>
+<Virtualhost *:80>
+   Document c:\xampp/htdocs/example/
+   Servername www.example.local
+<Virtualhot>
+
+3. Enable Virtual Hosts in appache 
+ . In httpd.conf  , locate the "Supplemental configuration" Section (around line 500).
+ . Uncomment the line that includes the virtual hosts configuration.   => Includes conf\extra\http-vhosts.conf
+
+4. Restart xampp
+ .Restart xampp to apply the changes.
+now i have to access "www.example.local"
+                     "www.mysite.local"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+My learning php, html, css, js=>
+MYSQLI STATEMENT TYPE 
+1.MySQLi Object-oriented
+2.MySQLi Procedural
+3.PDO
+
+1. HTML [Form, Table, Modal]
+2. CSS [Custom designing => "form, table, button, img, font",responsive designing using bootstrap]
+3. JAVASCRIPT [Validation, DOM, function]
+4. PHP [MVC, datatypes, oops, crud, sql, Error handling ]
+5. Sending email using smtp from localhost.
+6. CURL -> Access api endpoint using curl in php
+8. MYSQL DATABASE[crud, alter table, cascade table, Join];
+
+Read about: composit key, sengment key
+
+task 1 [xml parsing]
+Location                                        Department   => access all the information like this and download as csv extension file
+stree en  street ar  city en    city ar contact.
+
+Task 2 [json file make as to csv]
+
+Task 3 [A parent folder have different extension file, make every specific extension file for different folder outer parent and move same extension file same folder]
+
+Task 4 [access category and subcategory by using html form, and for a user save its in a table and gave option for add, delete, The data save in database as json]=>complete
+
+
+ 
+                                           
+
+
+Today study Friday
+Php is a general pupose scripting language geared towads web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1993 and released in 1995.
+full form => Personal home page => Hypertext preprocessor
+
+Use GET when you need to access a resources and retrieve data and you don't have to modify or alter the state of this data.
+Use Post when you need to send some data to the server. exa- somewhere.
+use Head when you need to access a resource and retrieve just the headers from the response, without any resource data.
+Use PUT when you need to replace the state of some data already existing on that system.
+Use DELETE when you need to get the communication options from a resource so for checking allowed methods for that resource.
+Ex- We use it for CORS request and permissions rules.
+CORS => CROSS ORIGIN RESOURCE SHARING.
+
+Basically a protocol is a set of rules you should use from your application to adhere to it.
+
+CROS ORIGIN RESOURCE SHARING (CORS) request occurs when a web page running in one domain (the origin) makes a request to a resource ( such as an API or SERVER ) hosted on a different domain. Cors is essential for security as it prevents unauthorized cross origin requests that could compromise sensitive data.
+
+cors data -> with php headers.
